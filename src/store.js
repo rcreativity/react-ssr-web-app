@@ -1,39 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
-import { fetchCircuits } from "./api";
 
-export const initializeSession = () => ({
-  type: "INITIALIZE_SESSION",
-});
-
-const storeData = (data) => ({
-  type: "STORE_DATA",
-  data,
-});
-
-export const fetchData = () => (dispatch) =>
-  fetchCircuits().then((res) => dispatch(storeData(res)));
-
-const sessionReducer = (state = false, action) => {
-  switch (action.type) {
-    case "INITIALIZE_SESSION":
-      return true;
-    default:
-      return state;
-  }
+const initialStateData = {
+  news: [],
 };
 
-const dataReducer = (state = [1, 2, 3, 4], action) => {
+const dataReducer = (initialStateData = [], action) => {
   switch (action.type) {
-    case "STORE_DATA":
-      return action.data;
     default:
-      return state;
+      return initialStateData;
   }
 };
 
 const reducer = combineReducers({
-  loggedIn: sessionReducer,
   data: dataReducer,
 });
 

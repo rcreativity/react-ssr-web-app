@@ -9,7 +9,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { Helmet } from "react-helmet";
 import routes from "./routes/index";
 import Layout from "./components/Layout";
-import createStore, { initializeSession } from "./store";
+import createStore from "./store";
 
 const app = express();
 
@@ -19,10 +19,8 @@ app.get("/*", (req, res) => {
   const context = {};
   const store = createStore();
 
-  store.dispatch(initializeSession());
-
   const dataRequirements = routes
-    .filter((route) => matchPath(req.url, route)) // filter matching paths
+    .filter((route) => matchPath(req.url, route)) // filter matching paths of routes
     .map((route) => route.component) // map to components
     .filter((comp) => comp.serverFetch) // check if components have data requirement
     .map((comp) => store.dispatch(comp.serverFetch())); // dispatch data requirement

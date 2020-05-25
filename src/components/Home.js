@@ -1,34 +1,35 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../store";
+import React from "react";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const todo = useSelector((state) => state.data);
-  useEffect(() => {
-    dispatch(fetchData);
-  }, []);
-  console.log(todo);
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Age</th>
+            <th>Comments</th>
+            <th>Vote Count</th>
+            <th>Up Vote</th>
+            <th>News Details</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
+            <td>36</td>
+            <td>90</td>
+            <td>🔼</td>
+            <td>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum,
+              corporis?
+            </td>
           </tr>
           <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
-            <td>94</td>
+            <td>44</td>
+            <td>88</td>
+            <td>🔼</td>
+            <td>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum,
+              corporis?
+            </td>
           </tr>
         </tbody>
       </table>
