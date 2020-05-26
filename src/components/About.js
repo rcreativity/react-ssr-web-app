@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchNewsData, upDateNumber } from "../store";
 import { Helmet } from "react-helmet";
 
-class Home extends React.Component {
+class About extends React.Component {
 
   constructor(props) {
     super(props);
@@ -36,37 +36,33 @@ class Home extends React.Component {
         <button onClick={this.handleClick}>
           Click Me
         </button>
-        {/* <ul>
+        <ul>
           {News.map(({ points, title, relevancy_score }, index) => (
             <li key={index} >{points} - { title}, { relevancy_score}</li>
           ))}
-        </ul> */}
-        <table>
-          <thead>
-            <tr>
-              <th>Comments</th>
-              <th>Vote Count</th>
-              <th>Up Vote</th>
-              <th>News Details</th>
+        </ul>
+        {/* <table>
+          <tr>
+            <th>Comments</th>
+            <th>Vote Count</th>
+            <th>Up Vote</th>
+            <th>News Details</th>
+          </tr>
+          {News.map(({ points, title, relevancy_score }, index) => (
+            <tr key={index}>
+              <td>{points}</td>
+              <td>{relevancy_score}</td>
+              <td>🔼</td>
+              <td>{title}</td>
             </tr>
-          </thead>
-          <tbody>
-            {News.map(({ points, title, relevancy_score }, index) => (
-              <tr key={index}>
-                <td>{points}</td>
-                <td>{relevancy_score}</td>
-                <td>🔼</td>
-                <td style={{ textAlign: 'left' }}>{title}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          ))}
+        </table> */}
       </div>
     );
   }
 }
-Home.serverFetch = fetchNewsData; // static declaration of data requirements
-// Home.serverFetch = upDateNumber; // static declaration of data requirements
+About.serverFetch = fetchNewsData; // static declaration of data requirements
+// About.serverFetch = upDateNumber; // static declaration of data requirements
 
 const mapStateToProps = (state) => {
   console.log(state)
@@ -81,4 +77,4 @@ const mapDispatchToProps = {
   upDateNumber
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(About);
