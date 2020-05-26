@@ -6,7 +6,7 @@ class About extends React.Component {
     return (
       <div className="wrapper">
         <Helmet>
-          <title>Contact Page</title>
+          <title>About Page</title>
           <meta name="description" content="This is a proof of concept for React SSR" />
         </Helmet>
         <h1>About Page</h1>
