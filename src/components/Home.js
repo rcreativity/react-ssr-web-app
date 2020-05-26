@@ -7,17 +7,41 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      currentPageNumber: 1
+    }
+    this.getNextPage = this.getNextPage.bind(this);
+    this.getPreviousPage = this.getPreviousPage.bind(this);
   }
 
   componentDidMount() {
     if (this.props.News.length <= 0) {
-      this.props.fetchNewsData('vue', 2);
+      this.props.fetchNewsData('react', 1);
+      this.setState({
+        currentPageNumber: currentPageNumber + 1
+      })
     }
   }
 
-  handleClick() {
-    this.props.fetchNewsData('svelte', 2);
+  getNextPage() {
+    this.props.fetchNewsData('react', this.state.currentPageNumber);
+    this.setState({
+      currentPageNumber: this.state.currentPageNumber + 1
+    }, () => {
+      console.log(this.state.currentPageNumber)
+    })
+  }
+
+  getPreviousPage() {
+    if (this.state.currentPageNumber >= 1) {
+      this.props.fetchNewsData('react', this.state.currentPageNumber);
+      this.setState({
+        currentPageNumber: this.state.currentPageNumber - 1
+      }, () => {
+        console.log(this.state.currentPageNumber)
+      })
+    }
+
   }
 
   render() {
@@ -50,9 +74,9 @@ class Home extends React.Component {
           </tbody>
         </table>
         <div className="button_group">
-          <button>Previous</button>
+          <button onClick={this.getPreviousPage}>Previous</button>
           <span></span>
-          <button>Next</button>
+          <button onClick={this.getNextPage}>Next</button>
         </div>
         <br />
         <br />

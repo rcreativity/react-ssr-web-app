@@ -15,40 +15,6 @@ body {
   background: #f6f6ef;
 }
 
-table{
-  width:100%;
-  border-spacing: 0px;
-}
-table > thead {
-  background: #ff732c;
-  color: #ffffff;
-}
-table > thead > tr{
-  height: 40px;
-}
-table > tbody > tr{
-  height: 40px;
-}
-table > tbody > tr:nth-child(odd){
-  background: #E5E6E0;
-}
-table > tbody  > tr > td {
-  height: 20px;
-}
-table > thead > tr > th:nth-child(1){
-  width:10%;
-}
-table > thead > tr > th:nth-child(2){
-  width:10%;
-}
-table > thead > tr > th:nth-child(3){
-  width:10%;
-}
-table > thead > tr > th:nth-child(4){
-  width:70%;
-  text-align: left;
-}
-
 .menu {
     padding-top: 20px;
 }
@@ -78,4 +44,73 @@ table > thead > tr > th:nth-child(4){
 
 .button_group span{
   border-right: 4px solid #ff732e;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.container {
+		width: 90%;
+		padding: 0 40px;
+	}
+}
+
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+
+tr:nth-of-type(odd) { 
+  background: #E5E6E0; 
+}
+th { 
+  background: #ff732e; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  /* border: 1px solid #ccc;  */
+  text-align: left; 
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+		width: 90%;
+		padding: 0 40px;
+	}
+
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
+	td:nth-of-type(1):before { content: "Comments"; }
+	td:nth-of-type(2):before { content: "Vote Count"; }
+	td:nth-of-type(3):before { content: "Up Vote"; }
+	td:nth-of-type(4):before { content: "News Details"; }
 }
