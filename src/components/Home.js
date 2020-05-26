@@ -31,16 +31,10 @@ class Home extends React.Component {
           <title>Contact Page</title>
           <meta name="description" content="This is a proof of concept for React SSR" />
         </Helmet>
-        <h2>F1 2018 Season Calendar</h2>
         <h1>{counter}</h1>
         <button onClick={this.handleClick}>
           Click Me
         </button>
-        {/* <ul>
-          {News.map(({ points, title, relevancy_score }, index) => (
-            <li key={index} >{points} - { title}, { relevancy_score}</li>
-          ))}
-        </ul> */}
         <table>
           <thead>
             <tr>
