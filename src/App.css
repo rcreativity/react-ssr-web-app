@@ -1,3 +1,10 @@
+/* #E5E6E0, #F6F5EF */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   width: 1140px;
   margin: 0 auto;
@@ -9,11 +16,24 @@
 }
 
 table{
-  display: block;
   width:100%;
+  border-spacing: 0px;
 }
 table > thead {
   background: #ff732c;
+  color: #ffffff;
+}
+table > thead > tr{
+  height: 40px;
+}
+table > tbody > tr{
+  height: 40px;
+}
+table > tbody > tr:nth-child(odd){
+  background: #E5E6E0;
+}
+table > tbody  > tr > td {
+  height: 20px;
 }
 table > thead > tr > th:nth-child(1){
   width:10%;
@@ -27,4 +47,35 @@ table > thead > tr > th:nth-child(3){
 table > thead > tr > th:nth-child(4){
   width:70%;
   text-align: left;
+}
+
+.menu {
+    padding-top: 20px;
+}
+
+.menu a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000000;
+    margin: 0 4px;
+    font-size: 18px;
+    background: #ff732c;
+}
+
+.button_group {
+  display: block;
+  text-align: right;
+}
+
+.button_group button {
+  background: transparent;
+  border: 0;
+  color: #ff732c;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button_group span{
+  border-right: 4px solid #ff732e;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchNewsData, upDateNumber } from "../store";
+import { fetchNewsData } from "../store";
 import { Helmet } from "react-helmet";
 
 class Home extends React.Component {
@@ -17,13 +17,11 @@ class Home extends React.Component {
   }
 
   handleClick() {
-    console.log('Click happened');
     this.props.fetchNewsData('svelte', 2);
-    this.props.upDateNumber()
   }
 
   render() {
-    const { News, counter } = this.props;
+    const { News } = this.props;
 
     return (
       <div className="wrapper">
@@ -31,10 +29,6 @@ class Home extends React.Component {
           <title>Contact Page</title>
           <meta name="description" content="This is a proof of concept for React SSR" />
         </Helmet>
-        <h1>{counter}</h1>
-        <button onClick={this.handleClick}>
-          Click Me
-        </button>
         <table>
           <thead>
             <tr>
@@ -55,24 +49,29 @@ class Home extends React.Component {
             ))}
           </tbody>
         </table>
+        <div className="button_group">
+          <button>Previous</button>
+          <span></span>
+          <button>Next</button>
+        </div>
+        <br />
+        <br />
+        <br />
       </div>
     );
   }
 }
-Home.serverFetch = fetchNewsData; // static declaration of data requirements
-// Home.serverFetch = upDateNumber; // static declaration of data requirements
+Home.serverFetch = fetchNewsData;
 
 const mapStateToProps = (state) => {
   console.log(state)
   return {
     News: state.data,
-    counter: state.counter
   }
 };
 
 const mapDispatchToProps = {
-  fetchNewsData,
-  upDateNumber
+  fetchNewsData
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

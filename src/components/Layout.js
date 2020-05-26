@@ -7,6 +7,7 @@ const Layout = () => {
   return (
     <div className="container">
       <Header />
+      <br />
       <Switch>
         {routes.map((route) => (
           <Route key={route.path} {...route} />
