@@ -74,6 +74,12 @@ td, th {
   /* border: 1px solid #ccc;  */
   text-align: left; 
 }
+.up_vote{
+  cursor: pointer;
+}
+hr{
+  background: #ff732e;
+}
 
 @media only screen and (max-width: 767px) {
   .container {
